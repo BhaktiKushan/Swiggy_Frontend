@@ -1,0 +1,298 @@
+/* RESET & BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* NAVBAR */
+.navbar-section {
+  background: #ff6f00;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.company {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.userauth button {
+  margin-left: 0.5rem;
+}
+.auth-button,
+.logout-button {
+  background: white;
+  color: #ff6f00;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.auth-button:hover,
+.logout-button:hover {
+  background-color: #ffe0b2;
+}
+
+/* LAYOUT */
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+}
+.with-sidebar .main-content {
+  flex: 1;
+}
+.main-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+/* SIDEBAR */
+.Sidebar-section {
+  width: 240px;
+  background: #fff8e1;
+  padding: 1.5rem 1rem;
+  height: 100vh;
+  border-right: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+}
+.Sidebar-section ul {
+  list-style: none;
+  padding: 0;
+}
+.Sidebar-section li {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.8rem;
+  background: #fff3e0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+.Sidebar-section li:hover {
+  background-color: #ffe0b2;
+}
+
+/* LOGIN / REGISTER */
+.Login-section,
+.register-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+.Login-form,
+.register-form {
+  background: white;
+  padding: 2rem;
+  max-width: 450px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+.Login-form h1,
+.register-form h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #ff6f00;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+form input,
+form button {
+  margin-bottom: 1rem;
+}
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="file"] {
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+form button {
+  background: #ff6f00;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+form button:hover {
+  background: #e65100;
+}
+
+/* AddFirm / AddProduct Styling */
+.Addfirm-section,
+.Addproduct-section {
+  background: white;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+.Addfirm-section h1,
+.Addproduct-section h1 {
+  color: #ff6f00;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.page-center {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 80vh;
+}
+.checkbox-group,
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.checkbox-label,
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+/* AllProducts Styling */
+.all-products-section {
+  width: 100%;
+  max-width: 1200px;
+}
+.firms-container,
+.products-container {
+  width: 100%;
+}
+.firms-grid,
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.firm-card,
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.firm-card:hover,
+.product-card:hover {
+  transform: scale(1.02);
+}
+.firm-image img,
+.product-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+.firm-info,
+.product-info {
+  padding: 1rem;
+}
+.firm-info h3,
+.product-info h3 {
+  color: #ff6f00;
+  margin-bottom: 0.5rem;
+}
+.firm-area,
+.firm-location,
+.product-price,
+.product-description {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.category-tag,
+.region-tag,
+.offer-tag {
+  background: #ffe0b2;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  margin-right: 0.3rem;
+}
+.bestseller-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #f44336;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 6px;
+}
+.back-button {
+  background: #ccc;
+  color: black;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+.back-button:hover {
+  background: #bbb;
+}
+
+/* Loading & Error */
+.loading,
+.error {
+  font-size: 1.2rem;
+  color: #666;
+  padding: 2rem;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .navbar-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .Sidebar-section {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .Addfirm-section,
+  .Addproduct-section,
+  .Login-form,
+  .register-form {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+}
