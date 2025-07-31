@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { API_URL } from '../data/ApiPath';
 
-const Register = ({loginHandler}) => {
+const Register = ({ loginHandler }) => {
   const [Username, setUsername] = useState('');
-  const [Email, setEmail]     = useState('');
+  const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    
     try {
       const response = await fetch(`${API_URL}/vendor/register`, {
         method: 'POST',
@@ -32,6 +35,8 @@ const Register = ({loginHandler}) => {
     } catch (err) {
       console.error('Error during registration:', err);
       alert(`Error: ${err.message}`);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -40,30 +45,43 @@ const Register = ({loginHandler}) => {
       <div className="register-form">
         <h1>Vendor Register</h1>
         <form onSubmit={handleSubmit}>
-
           <input
             type="text"
             value={Username}
             onChange={(e) => setUsername(e.target.value)}
             placeholder="Enter your Username"
+            disabled={isLoading}
             required
           />
+          
           <input
             type="email"
             value={Email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your Email"
+            disabled={isLoading}
             required
           />
+          
           <input
             type="password"
             value={Password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter your Password"
+            disabled={isLoading}
             required
           />
-          <button type="submit">Register</button>
-
+          
+          <button 
+            type="submit"
+            disabled={isLoading}
+            style={{
+              opacity: isLoading ? 0.7 : 1,
+              cursor: isLoading ? 'not-allowed' : 'pointer'
+            }}
+          >
+            {isLoading ? 'Registering...' : 'Register'}
+          </button>
         </form>
       </div>
     </div>
